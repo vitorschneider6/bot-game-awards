@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+.env
+.env.local
+.env.*.local
+.vscode
+.git
+.DS_Store
+logs
+*.log
+coverage
+tmp
+dist
+build
+/.dockerignore

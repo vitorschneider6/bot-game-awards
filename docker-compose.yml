@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bolao-game-awards:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app:ro
+
+volumes: {}
+# Using RDS / external DB
+# This compose file no longer creates a local MySQL container.
+# Make sure `DB_HOST`, `DB_USER`, `DB_PASS` and `DB_NAME` in your `.env`
+# point to your RDS instance (or other external DB). The `env_file` reference
+# above will load those values into the `app` service.
