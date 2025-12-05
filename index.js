@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, Partials } = require('discord.js');
-const { token } = require('./config.json');
+require('dotenv').config();
 
 const client = new Client({
     intents: [
@@ -52,4 +52,4 @@ client.cooldowns = new Collection();
 
 const api = require("./api/app");
 api(client);
-client.login(token);
+client.login(process.env.BOT_TOKEN);
